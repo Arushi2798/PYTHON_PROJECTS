@@ -1,4 +1,6 @@
-# DEMO
-this is my 1st git Repository.
+# Python Projects
+This repository contains multiple projects made using python programming language.
 <br>
-Author- Arushi (IIITA) 
+credit for projects: Jenny Khatri
+<br>
+Author- Arushi Verma  
