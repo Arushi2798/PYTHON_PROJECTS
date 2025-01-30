@@ -1,4 +1,3 @@
-import random
 #Question Statement
 """Creating a Rock Paper Scissor GAME. 
 RULES: 1. rock wins against scissor,
@@ -6,6 +5,8 @@ RULES: 1. rock wins against scissor,
        3. paper wins aginst rock. 
        """
 #notation: 0 for rock, 1 for paper, 2 for scissor
+
+import random
 
 print("Welcome to the ROCK-PAPER-SCISSOR Game Folks!!")
 print("RULES: \n1. rock wins against scissor,\n2. scissor wins against paper,\n3. paper wins aginst rock.")
