@@ -48,6 +48,7 @@ def guesses(blank,guess,wrong_count):
         for i in range(len(correct_word)):
             if guess== correct_word[i]:
                 l.append(i)
+        for j in l:
             blank[j]=guess
         return blank
         
