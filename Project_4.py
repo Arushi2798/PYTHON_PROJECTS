@@ -1,4 +1,2 @@
-a="ACVBNHGFAAAAAA"
-for i in range(len(a)):
-    if "A"== a[i]:
-        print(i)
+#Question Statement
+"""Creating a Caesar Cipher: an encryption technique."""
