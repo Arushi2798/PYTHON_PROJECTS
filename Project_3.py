@@ -6,7 +6,7 @@ the number of chances are only 6 as it needs the hangman figure to be complete."
 import random
 
 words={1: "apple", 2: "blanket", 3: "bottle", 4: "towel", 5: "books", 6: "paper", 7: "kettle", 8: "tablet", 9: "mobile", 10: "vinegar",
-       11:"pillow",12:"greentea",13:"mirror",14:"school"}
+       11:"pillow",12:"greentea",13:"mirror",14:"school", 15: "laptop"}
 
 #creating blanks spaces for total letter count of any word
 def word():
