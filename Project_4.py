@@ -4,21 +4,24 @@ a key is set which helps shift the alphabets of the text for encryption,
 which is turn will be used to decrypt the text message."""
 
 d=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-final=""
+
+
 
 def encrypt(sentence, key):
+    final=""
     for each in sentence:
         if each in d:
             pos=d.index(each)
-            res=d[pos+key]
+            res=d[(pos+key)%26]
             print(final+res, end="")
 
 
 def decrypt(sentence,key):
+    final=""
     for each in sentence:
         if each in d:
             pos=d.index(each)
-            res=d[pos-key]
+            res=d[(pos-key)%26]
             print(final+res,end="")
 
 
