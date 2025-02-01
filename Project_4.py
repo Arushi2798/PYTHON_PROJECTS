@@ -7,28 +7,26 @@ d=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","
 final=""
 
 def encrypt(sentence, key):
-    # print("en ans")
     for each in sentence:
         if each in d:
             pos=d.index(each)
             res=d[pos+key]
-    print(final+res)
+            print(final+res, end="")
 
 
 def decrypt(sentence,key):
-    # print('dc ans')
     for each in sentence:
         if each in d:
             pos=d.index(each)
             res=d[pos-key]
-    print(final+res)
+            print(final+res,end="")
 
 
 repeat="y"
 while repeat=="y":
-    ans=input("Type 'encrypt' for performing encryption and 'decrypt' for performing decryption: \n")
+    ans=input("\nType 'encrypt' for performing encryption and 'decrypt' for performing decryption: \n")
     sen=input("Type your message: \n")
-    k=int(input("Type the shift number"))
+    k=int(input("Type the shift number: \n"))
     
     if ans== "encrypt":
         encrypt(sen,k)
@@ -36,4 +34,4 @@ while repeat=="y":
     elif ans =="decrypt":
         decrypt(sen,k)
     
-    repeat=input("Type 'y' if you wanna go again, otherwise type 'n'. ")
+    repeat=input("\nType 'y' if you wanna go again, otherwise type 'n'. ")
