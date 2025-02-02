@@ -20,22 +20,22 @@ def hangman(wrong):
     man=""
     while wrong<7: 
         if wrong==1:
-            man = " O" 
+            man = " |----\n O   |\n     |\n     |\n     |\n     |\n-------" 
             return man
         if wrong==2:
-            man = " O\n/"
+            man = " |----\n O   |\n/    |\n     |\n     |\n     |\n-------"
             return man
         if wrong==3:
-            man = " O\n/|"
+            man = " |----\n O   |\n/|   |\n     |\n     |\n     |\n-------"
             return man
         if wrong==4:
-            man = " O\n/|\\"
+            man = " |----\n O   |\n/|\\  |\n     |\n     |\n     |\n-------"
             return man
         if wrong==5:
-            man = " O\n/|\\\n/"
+            man = " |----\n O   |\n/|\\  |\n/    |\n     |\n     |\n-------"
             return man
         if wrong==6:
-            man = " O\n/|\\\n/ \\"
+            man = " |----\n O   |\n/|\\  |\n/ \\  |\n     |\n     |\n-------"
             return man
         
         # time.sleep(1)
