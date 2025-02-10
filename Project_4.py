@@ -31,10 +31,10 @@ while repeat=="y":
     sen=input("Type your message: \n")
     k=int(input("Type the shift number: \n"))
     
-    if ans== "E":
+    if ans.upper()== "E":
         encrypt(sen,k)
                 
-    elif ans =="D":
+    elif ans.upper() =="D":
         decrypt(sen,k)
     
     repeat=input("\nType 'y' if you wanna go again, otherwise type 'n'. ")

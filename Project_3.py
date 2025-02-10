@@ -91,3 +91,4 @@ while wrong_count < 6:
         guess=g.lower()
 
 print("         GAME OVER!!")
+print(f'the correct word was {s_word[1]}')
