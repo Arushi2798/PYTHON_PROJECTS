@@ -20,16 +20,15 @@ while no_turn < chance:
     if no >guess:
         print("you guessed high")
         c-=1
-        print("guess again")
     elif no< guess:
         print('you guessed low')
         c-=1
-        print("guess again")
     elif no==guess:
         print("you are correct!!!")
         break     
 
     print(f"you have {c} chances left")
+    print("guess again")
     no_turn+=1
 
 print("GAME OVER!!!")
