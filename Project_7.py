@@ -14,19 +14,22 @@ elif level =='hard':
     print("you have 4 attempts to guess the number!!")
     chance=4
 
-while no_turn <= chance:
+while no_turn < chance:
+    c=chance
     no=int(input('make a guess: '))
     if no >guess:
         print("you guessed high")
-        chance-=1
+        c-=1
+        print("guess again")
     elif no< guess:
         print('you guessed low')
-        chance-=1
+        c-=1
+        print("guess again")
     elif no==guess:
         print("you are correct!!!")
         break     
 
-    print(f"you have {chance} chances left")
+    print(f"you have {c} chances left")
     no_turn+=1
 
 print("GAME OVER!!!")
