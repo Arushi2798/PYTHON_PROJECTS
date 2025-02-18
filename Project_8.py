@@ -5,5 +5,5 @@ d={"NASA,a space agency, from USA":10000,
    "t-series, a music label, from india":20000,
    "BTS, a band from soth korea":7000000000
      }
-
+compare=0
 print(f"COMPARE {compare}")
