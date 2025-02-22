@@ -13,21 +13,16 @@ sp=-1
 
 match(choice):
     case "latte":
-        if money>l:
-            sp=money -l
-        else:
-            print(f"please give Rs{l-money} more")
+        sp=money-price.get("latte")
     case "espresso":
-        if money>e:
-            sp=money -e
-        else:
-            print(f"please give Rs{e-money} more")
+        sp=money-price.get("espresso")
     case "cappuccino":
-        if money>c:
-            sp=money -c
-        else:
-            print(f"please give Rs{c-money} more")
+        sp=money-price.get("cappuccino")
 
-if sp>=0 :
+if sp<0:
+    print(f"please give Rs{-sp} more")
+elif sp>0 :
     print(f"Here's your change of {sp} rupees")
-    
+    print("Enjoy your drink")
+else:
+    print("Enjoy your drink")
