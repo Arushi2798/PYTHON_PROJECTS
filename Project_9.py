@@ -1,16 +1,15 @@
 print("Welcome to the STARBUCKS COFFEE!!")
 choice=input("What would you like to have? (latte/espresso/cappuccino): ")
 print("Please insert coins now")
-coin_5=int(input("How many 5Rs. coins? : "))
-coin_10=int(input("How many 10Rs. coins? : "))
-coin_20=int(input("How many 20Rs. coins? : "))
 
-l=150
-c=175
-e=200
+coin=[5,10,20]
+money=0
+for each in coin:
+    coin=int(input(f"How many {each}Rs. coins? : "))
+    money+=coin*each
+
+price={"latte":150,"espresso":200,"cappuccino":175}
 sp=-1
-
-money=coin_10*10 + coin_20*20+coin_5*5
 
 match(choice):
     case "latte":
@@ -31,3 +30,4 @@ match(choice):
 
 if sp>=0 :
     print(f"Here's your change of {sp} rupees")
+    
