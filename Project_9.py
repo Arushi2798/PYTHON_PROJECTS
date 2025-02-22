@@ -10,7 +10,6 @@ def orderplaced():
         m+=coin*each
     return m
 
-money=orderplaced()
 
 def pricecal(money):
     price={"latte":150,"espresso":200,"cappuccino":175}
@@ -25,7 +24,6 @@ def pricecal(money):
 
     return sp
 
-sp=pricecal()
 
 def changecal(sp):
     if sp<0:
@@ -38,3 +36,8 @@ def changecal(sp):
         print("Enjoy your drink")
     else:
         print("Enjoy your drink")
+
+
+money=orderplaced()
+sp=pricecal(money)
+change=changecal(sp)
