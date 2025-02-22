@@ -17,3 +17,5 @@ match(choice):
         sp=e-money
     case "cappuccino":
         sp=c-money
+
+print(f"Here's your change of {sp} rupees")
