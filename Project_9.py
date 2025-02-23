@@ -1,8 +1,9 @@
 print("Welcome to the STARBUCKS COFFEE!!")
 choice=input("What would you like to have? (latte/espresso/cappuccino): ")
-print("Please insert coins now")
+
 
 def orderplaced():
+    print("Please insert coins now")
     coin=[5,10,20]
     m=0
     for each in coin:
@@ -25,12 +26,13 @@ def pricecal(money):
     return sp
 
 
-def changecal(sp):
+def changecal(sp,money):
     if sp<0:
         print(f"please give Rs{-sp} more")
         extra=orderplaced()
-        total=sp + pricecal(extra)
-        changecal(total)
+        money += extra
+        new=pricecal(money)
+        changecal(new, money)
     elif sp>0 :
         print(f"Here's your change of {sp} rupees")
         print("Enjoy your drink")
@@ -38,6 +40,6 @@ def changecal(sp):
         print("Enjoy your drink")
 
 
-money=orderplaced()
-sp=pricecal(money)
-change=changecal(sp)
+money = orderplaced()
+sp= pricecal(money)
+change= changecal(sp,money)
