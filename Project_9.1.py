@@ -37,34 +37,79 @@ def changecal(sp,money):
 
 print("Welcome to the STARBUCKS COFFEE!!")
 
-resources={"Water":1000,"Milk":10000, "Coffee":100, "Money":0}
+resources={"Water":500,"Milk":500, "Coffee":50, "Money":0}
 
-choice=input("What would you like to have? (latte/espresso/cappuccino): ")
+choice=1
+while choice:
+    res=0
+    choice=input("What would you like to have? (latte/espresso/cappuccino): ")
 
-match choice:
-    case "off":
-        exit()
-    case "report":
-        for each in resources:
-            print(f"{each} : {resources.get(each)}")
-    case "latte":
-        resources["Coffee"]=resources.get("Coffee")-24
-        resources["Milk"]=resources.get("Milk")-150
-        resources["Water"]=resources.get("Water")-200
-        resources["Money"]=resources.get("Money")-150
-        money = orderplaced()
-    case "cappuccino":
-        resources["Coffee"]=resources.get("Coffee")-24
-        resources["Milk"]=resources.get("Milk")-100
-        resources["Water"]=resources.get("Water")-150
-        resources["Money"]=resources.get("Money")-200
-        money = orderplaced()
-    case "espresso":
-        resources["Coffee"]=resources.get("Coffee")-18
-        resources["Milk"]=resources.get("Milk")-0
-        resources["Water"]=resources.get("Water")-58
-        resources["Money"]=resources.get("Money")-100
-        money = orderplaced()
+    match choice:
+        case "off":
+            exit()
+        case "report":
+            for each in resources:
+                print(f"{each} : {resources.get(each)}")
 
-sp= pricecal(money)
-change= changecal(sp,money)
+        case "latte":
+            resources["Coffee"]=resources.get("Coffee")-24
+            resources["Milk"]=resources.get("Milk")-150
+            resources["Water"]=resources.get("Water")-200
+            resources["Money"]=resources.get("Money")+150
+            for each in resources:
+                if resources.get(each) < 0:
+                    res+=1
+            if res!=0:
+                print(f"Sorry, we don't have enough {each} right now,\n you can order something else")
+                choice=input("What would you like to have? (latte/espresso/cappuccino): ")
+                money = orderplaced()
+                sp= pricecal(money)
+                change= changecal(sp,money)
+
+            else:
+                money = orderplaced()
+                sp= pricecal(money)
+                change= changecal(sp,money)
+            
+        case "cappuccino":
+            resources["Coffee"]=resources.get("Coffee")-24
+            resources["Milk"]=resources.get("Milk")-100
+            resources["Water"]=resources.get("Water")-150
+            resources["Money"]=resources.get("Money")+200
+            for each in resources:
+                if resources.get(each) < 0:
+                    res+=1
+            if res!=0:
+                print(f"Sorry, we don't have enough {each} right now,\n you can order something else")
+                choice=input("What would you like to have? (latte/espresso/cappuccino): ")
+                money = orderplaced()
+                sp= pricecal(money)
+                change= changecal(sp,money)
+
+            else:
+                money = orderplaced()
+                sp= pricecal(money)
+                change= changecal(sp,money)
+        
+        case "espresso":
+            resources["Coffee"]=resources.get("Coffee")-18
+            resources["Milk"]=resources.get("Milk")-0
+            resources["Water"]=resources.get("Water")-58
+            resources["Money"]=resources.get("Money")+100
+            for each in resources:
+                if resources.get(each) < 0:
+                    res+=1
+            if res!=0:
+                print(f"Sorry, we don't have enough {each} right now,\n you can order something else")
+                choice=input("What would you like to have? (latte/espresso/cappuccino): ")
+                money = orderplaced()
+                sp= pricecal(money)
+                change= changecal(sp,money)
+
+            else:
+                money = orderplaced()
+                sp= pricecal(money)
+                change= changecal(sp,money)
+
+
+    
