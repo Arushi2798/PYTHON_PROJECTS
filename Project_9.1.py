@@ -91,7 +91,10 @@ def order():
             resources["Water"]=resources.get("Water")-58
             resources["Money"]=resources.get("Money")+100
             program(temp)
-            
+        
+        case default:
+            return "there was a mistake, could you please enter it correctly."
+        
     temp.clear()
             
 
