@@ -32,22 +32,32 @@ def orderplaced():
         m+=coin*each
     return m
 
-def resourcecheck(temp):
-    temp["coffee"]=resources.get("Coffee")-24
-    temp["milk"]=resources.get("Milk")-150
-    temp["water"]=resources.get("Water")-200
-    temp['paisa']=resources.get("Money")+150
-    res=0
+# def resourcecheck(temp):
+#     res=0
+#     for each in temp:
+#         if temp.get(each) < 0:
+#             res+=1
+#             break
+#     if res!=0:
+#         print(f"Sorry, we don't have enough {each} right now,\n you can order something else")
+#         order()
+#     else:
+#         return orderplaced()
+
+def program(temp,choice):
     for each in temp:
         if temp.get(each) < 0:
-            res+=1
+            print(f"Sorry, we don't have enough {each} right now,\n you can order something else")
             break
-    if res!=0:
-        print(f"Sorry, we don't have enough {each} right now,\n you can order something else")
-        
-        order()
     else:
-        return orderplaced()
+        resources["Coffee"]=temp["coffee"]
+        resources["Milk"]=temp["milk"]
+        resources["Water"]=temp["water"]
+        resources["Money"]=temp["paisa"]
+        check_money=orderplaced()
+        sp=pricecal(check_money, choice)
+        changecal(sp,check_money,choice)
+
 
 
 def order():
@@ -61,33 +71,28 @@ def order():
                 print(f"{each} : {resources.get(each)}")
 
         case "latte":
-            
-            check_money=resourcecheck(temp)
-            resources["Coffee"]=temp["coffee"]
-            resources["Milk"]=temp["milk"]
-            resources["Water"]=temp["water"]
-            resources["Money"]=temp["paisa"]
-            
-            sp=pricecal(check_money, choice)
-            change= changecal(sp,check_money,choice)
+            temp["coffee"]=resources.get("Coffee")-24
+            temp["milk"]=resources.get("Milk")-150
+            temp["water"]=resources.get("Water")-200
+            temp['paisa']=resources.get("Money")+150
+            # check_money=resourcecheck(temp)
+            program(temp,choice)
 
         case "cappuccino":
             resources["Coffee"]=resources.get("Coffee")-24
             resources["Milk"]=resources.get("Milk")-100
             resources["Water"]=resources.get("Water")-150
             resources["Money"]=resources.get("Money")+200
-            check_money=resourcecheck()
-            sp=pricecal(check_money, choice)
-            change= changecal(sp,check_money,choice)
+            program(temp)
             
         case "espresso":
             resources["Coffee"]=resources.get("Coffee")-18
             resources["Milk"]=resources.get("Milk")-0
             resources["Water"]=resources.get("Water")-58
             resources["Money"]=resources.get("Money")+100
-            check_money=resourcecheck()
-            sp=pricecal(check_money, choice)
-            change= changecal(sp,check_money,choice)
+            program(temp)
+            
+    temp.clear()
             
 
 print("Welcome to the STARBUCKS COFFEE!!")
