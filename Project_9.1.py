@@ -32,10 +32,14 @@ def orderplaced():
         m+=coin*each
     return m
 
-def resourcecheck():
+def resourcecheck(temp):
+    temp["coffee"]=resources.get("Coffee")-24
+    temp["milk"]=resources.get("Milk")-150
+    temp["water"]=resources.get("Water")-200
+    temp['paisa']=resources.get("Money")+150
     res=0
-    for each in resources:
-        if resources.get(each) < 0:
+    for each in temp:
+        if temp.get(each) < 0:
             res+=1
             break
     if res!=0:
@@ -48,7 +52,7 @@ def resourcecheck():
 
 def order():
     choice=input("What would you like to have? (latte/espresso/cappuccino): ")
-
+    temp={}
     match choice:
         case "off":
             exit()
@@ -57,11 +61,13 @@ def order():
                 print(f"{each} : {resources.get(each)}")
 
         case "latte":
-            resources["Coffee"]=resources.get("Coffee")-24
-            resources["Milk"]=resources.get("Milk")-150
-            resources["Water"]=resources.get("Water")-200
-            resources["Money"]=resources.get("Money")+150
-            check_money=resourcecheck()
+            
+            check_money=resourcecheck(temp)
+            resources["Coffee"]=temp["coffee"]
+            resources["Milk"]=temp["milk"]
+            resources["Water"]=temp["water"]
+            resources["Money"]=temp["paisa"]
+            
             sp=pricecal(check_money, choice)
             change= changecal(sp,check_money,choice)
 
