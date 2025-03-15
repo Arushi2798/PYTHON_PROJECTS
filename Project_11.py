@@ -24,29 +24,42 @@ again= 'yes'
 
 number =str(random.randint(100,999))
 print(number)
-
+correct=0
 print("\nI have thought up a number.\nYou have 10 guesses to get it.")
 
-for i in range(10):
-    correct=0
-    guess= input(f'Guess #{i+1}: ')
-    if len(guess) != max_digits:
-        print("give a 3 digit number please")
-        break
-    if guess == number:
-        print("You got it!")
-        again=input("Do you want to play again? (yes or no): ")
-        if again== 'no':
-            print("Thanks for playing")
-            break
-    else:
-        for j in range(max_digits):
-            if guess[j]==number[j]:
-                print('Fermi')
+def fermi(number,guess,correct):
+    for j in range(max_digits):
+        if number[j]==guess[j]:
+            correct+=1
+    return correct
+
+def pico(number, guess,correct):
+    for j in range(max_digits):
+        for k in range(max_digits):
+            if j!=k:
+                if number[j]==guess[k]:
+                    correct+=1
+    return correct
+
+
+    while again='yes':
+    for i in range(10):
+        guess= input(f'Guess #{i+1}: ')
+        if len(guess) != max_digits:
+            print("give a 3 digit number please")
+        elif guess == number:
+            print("You got it!")
+            again=input("Do you want to play again? (yes or no): ")
+            if again== 'no':
+                print("Thanks for playing")
                 break
-            elif guess[j]==number[j+1]:
-                print("Pico")
-                break
+        else:
+            f=fermi(number,guess,correct)
+            if f!=0:
+                print('Fermi! '*f)
             else:
-                print("BAGELS!!")
-                break
+                p=pico(number,guess,correct)
+                if p !=0:
+                    print('Pico! '*p)
+                else:
+                    print("BAGELS !!!")
