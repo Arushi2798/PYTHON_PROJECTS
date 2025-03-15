@@ -18,13 +18,35 @@ import random
 print("\nBagels, a deductive logic game.\nBy Al Sweigart al@inventwithpython.com \n\nI am thinking of a 3-digit number. Try to guess what it is.")
 print("Here are some clues: \n When I say:    That means:\n  Pico         One digit is correct but in the wrong position.\n  Fermi        One digit is correct and in the right position.\n  Bagels       No digit is correct.")
 
-number =random.randint(100,999)
-# print(number)
+max_digits=3
+again= 'yes'
+
+
+number =str(random.randint(100,999))
+print(number)
 
 print("\nI have thought up a number.\nYou have 10 guesses to get it.")
 
-
-
 for i in range(10):
-     guess= int(input(f'Guess #{i+1}: '))
-    
+    correct=0
+    guess= input(f'Guess #{i+1}: ')
+    if len(guess) != max_digits:
+        print("give a 3 digit number please")
+        break
+    if guess == number:
+        print("You got it!")
+        again=input("Do you want to play again? (yes or no): ")
+        if again== 'no':
+            print("Thanks for playing")
+            break
+    else:
+        for j in range(max_digits):
+            if guess[j]==number[j]:
+                print('Fermi')
+                break
+            elif guess[j]==number[j+1]:
+                print("Pico")
+                break
+            else:
+                print("BAGELS!!")
+                break
