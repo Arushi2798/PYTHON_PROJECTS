@@ -21,11 +21,7 @@ print("Here are some clues: \n When I say:    That means:\n  Pico         One di
 max_digits=3
 again= 'yes'
 
-
-number =str(random.randint(100,999))
-print(number)
 correct=0
-print("\nI have thought up a number.\nYou have 10 guesses to get it.")
 
 def fermi(number,guess,correct):
     for j in range(max_digits):
@@ -42,7 +38,11 @@ def pico(number, guess,correct):
     return correct
 
 
-    while again='yes':
+while again =='yes':
+    number =str(random.randint(100,999))
+    print(number)
+    print("\nI have thought up a number.\nYou have 10 guesses to get it.")
+
     for i in range(10):
         guess= input(f'Guess #{i+1}: ')
         if len(guess) != max_digits:
@@ -50,8 +50,10 @@ def pico(number, guess,correct):
         elif guess == number:
             print("You got it!")
             again=input("Do you want to play again? (yes or no): ")
-            if again== 'no':
+            if again == 'no':
                 print("Thanks for playing")
+                break
+            else:
                 break
         else:
             f=fermi(number,guess,correct)
