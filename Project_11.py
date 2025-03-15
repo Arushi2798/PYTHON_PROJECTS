@@ -30,7 +30,9 @@ def clues(number,guess,correct):
         elif guess[j] in number:
             print("Pico")
     else:
+        if guess != number:
         return print("BAGELS!!")
+    
                     
 while again =='yes':
     number =str(random.randint(100,999))
