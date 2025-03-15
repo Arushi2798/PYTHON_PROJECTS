@@ -23,21 +23,15 @@ again= 'yes'
 
 correct=0
 
-def fermi(number,guess,correct):
+def clues(number,guess,correct):
     for j in range(max_digits):
         if number[j]==guess[j]:
-            correct+=1
-    return correct
-
-def pico(number, guess,correct):
-    for j in range(max_digits):
-        for k in range(max_digits):
-            if j!=k:
-                if number[j]==guess[k]:
-                    correct+=1
-    return correct
-
-
+            print("Fermi")
+        elif guess[j] in number:
+            print("Pico")
+    else:
+        return print("BAGELS!!")
+                    
 while again =='yes':
     number =str(random.randint(100,999))
     print(number)
@@ -56,12 +50,4 @@ while again =='yes':
             else:
                 break
         else:
-            f=fermi(number,guess,correct)
-            if f!=0:
-                print('Fermi! '*f)
-            else:
-                p=pico(number,guess,correct)
-                if p !=0:
-                    print('Pico! '*p)
-                else:
-                    print("BAGELS !!!")
+            clues(number,guess,correct)
