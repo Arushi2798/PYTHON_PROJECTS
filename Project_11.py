@@ -22,16 +22,19 @@ max_digits=3
 again= 'yes'
 
 correct=0
+res=[]
 
 def clues(number,guess,correct):
     for j in range(max_digits):
         if number[j]==guess[j]:
-            print("Fermi")
+            res.append("Fermi")
         elif guess[j] in number:
-            print("Pico")
-    else:
-        if guess != number:
+            res.append("Pico")
+    
+    if len(res)==0:
         return print("BAGELS!!")
+    else:
+        print(res.sort())
     
                     
 while again =='yes':
