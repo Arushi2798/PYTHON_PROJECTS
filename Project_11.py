@@ -40,7 +40,7 @@ def clues(number,guess):
                     
 while again =='yes':
     number =str(random.randint(100,999))
-    print(number)
+    # print(number)
     print("\nI have thought up a number.\nYou have 10 guesses to get it.")
 
     for i in range(10):
@@ -49,11 +49,11 @@ while again =='yes':
             print("give a 3 digit number please")
         elif guess == number:
             print("You got it!")
-            again=input("Do you want to play again? (yes or no): ")
-            if again == 'no':
-                print("Thanks for playing")
-                break
-            else:
-                break
+            break
         else:
             print(clues(number,guess))
+        
+    again=input("Do you want to play again? (yes or no): ")
+    if again == 'no':
+        print("Thanks for playing")
+        break
