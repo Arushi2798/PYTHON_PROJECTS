@@ -21,20 +21,21 @@ print("Here are some clues: \n When I say:    That means:\n  Pico         One di
 max_digits=3
 again= 'yes'
 
-correct=0
-res=[]
 
-def clues(number,guess,correct):
+
+def clues(number,guess):
+    res=[]
     for j in range(max_digits):
-        if number[j]==guess[j]:
+        if guess[j]==number[j]:
             res.append("Fermi")
         elif guess[j] in number:
             res.append("Pico")
     
     if len(res)==0:
-        return print("BAGELS!!")
+        return "BAGELS!!"
     else:
-        print(res.sort())
+        res.sort()
+        return " ".join(res)
     
                     
 while again =='yes':
@@ -55,4 +56,4 @@ while again =='yes':
             else:
                 break
         else:
-            clues(number,guess,correct)
+            print(clues(number,guess))
