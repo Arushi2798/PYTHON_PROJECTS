@@ -70,10 +70,16 @@ for i, birthday in enumerate(birthdays):
 #to check for matching birthdays
 match=getMatch(birthdates)
 if len(match)==0:
-    print("\nIn this simulation, there are no matching birthdays.S")
+    print("\nIn this simulation, there are no matching birthdays.")
 else:
     date=[]
     for each in match:
         date.append(birthdates[each])
     
     print(f"\n\n In this simulation, multiple people have a birthday on {", ".join(date)}. \n")
+
+#to run 100,000 simulations
+# Run through 100,000 simulations:
+print(f'Generating {num} random birthdays 100,000 times...')
+input('Press Enter to begin...')
+print('Let\'s run another 100,000 simulations.')
