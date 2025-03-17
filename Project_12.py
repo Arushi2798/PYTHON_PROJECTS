@@ -23,7 +23,22 @@ def getbirthdays(number):
     return dates
 
 def getMatch(birthdates):
-    pass
+    
+
+
+
+
+
+
+
+    # for i, each in enumerate(birthdates):
+
+
+    # if len(birthdates) == len(set(birthdates)):
+    #      return None
+    # else:
+    #     for i in range(len(birthdates)):
+    #         if birthdates[i]
 
 print('''Birthday Paradox, by Al Sweigart al@inventwithpython.com 
 The birthday paradox shows us that in a group of N people, the odds
@@ -33,7 +48,7 @@ simulations) to explore this concept.
  
 (It's not actually a paradox, it's just a surprising result.)''')
 
-MONTHS=('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+MONTHS=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 # date=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]
 
 num = int(input("\nhow many birthday's should i generate? (Max 100) \n >"))
