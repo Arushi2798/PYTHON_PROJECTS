@@ -23,22 +23,13 @@ def getbirthdays(number):
     return dates
 
 def getMatch(birthdates):
-    
+    c=[]
+    for i in range(len(birthdates)):
+        for j in range(i+1,len(birthdates)):
+            if birthdates[i] ==birthdates[j]:
+                c.append(i)
+    return c
 
-
-
-
-
-
-
-    # for i, each in enumerate(birthdates):
-
-
-    # if len(birthdates) == len(set(birthdates)):
-    #      return None
-    # else:
-    #     for i in range(len(birthdates)):
-    #         if birthdates[i]
 
 print('''Birthday Paradox, by Al Sweigart al@inventwithpython.com 
 The birthday paradox shows us that in a group of N people, the odds
@@ -60,9 +51,11 @@ else:
 
 print(f'\nHere are {num} birthdays')
 birthdates = getbirthdays(num)
-for each in birthdates:
-    print(each, end=", ")
- 
+# for each in birthdates:
+#     print(each, end=", ")
+
+print(", ".join(birthdates), end='')
+
 """for similar effects use following when the fucntion only returns list of dates without modifications
 for i, birthday in enumerate(birthdays):
       if i != 0:
@@ -76,4 +69,11 @@ for i, birthday in enumerate(birthdays):
 
 #to check for matching birthdays
 match=getMatch(birthdates)
-print(f"In this simulation, multiple people have a birthday on {date}")
+if len(match)==0:
+    print("\nIn this simulation, there are no matching birthdays.S")
+else:
+    date=[]
+    for each in match:
+        date.append(birthdates[each])
+    
+    print(f"\n\n In this simulation, multiple people have a birthday on {", ".join(date)}. \n")
