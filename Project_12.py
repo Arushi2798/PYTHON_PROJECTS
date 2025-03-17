@@ -22,7 +22,8 @@ def getbirthdays(number):
 
     return dates
 
-
+def getMatch(birthdates):
+    pass
 
 print('''Birthday Paradox, by Al Sweigart al@inventwithpython.com 
 The birthday paradox shows us that in a group of N people, the odds
@@ -57,3 +58,7 @@ for i, birthday in enumerate(birthdays):
       print(dateText, end='')
   print()
   print()"""
+
+#to check for matching birthdays
+match=getMatch(birthdates)
+print(f"In this simulation, multiple people have a birthday on {date}")
