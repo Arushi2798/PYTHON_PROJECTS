@@ -7,7 +7,18 @@ The provided bitmap resembles a world map, but you can change this to any image 
 The binary simplicity of the space-or-message-characters system makes it good for beginners.
 Try experimenting with different messages to see what the results look like!"""
 
-# import sys
+def publish(bitmap):
+    print("."*100)
+    for eachline in bitmap.splitlines():
+        for i,each in enumerate(eachline):
+            if each ==" ":
+                print(" ",end= "")
+            else:
+                print(msg[i%len(msg)],end="")
+                
+        print()
+    print("."*100)
+
 
 print("Bitmap Message, by Al Sweigart al@inventwithpython.com")
 msg=input("Enter the message to display with the bitmap.\n > ")
@@ -35,10 +46,31 @@ bitmap1 = """
                      ***                                       *    *
                      **     *                    *
 """
-for eachline in bitmap1.splitlines():
-    for i,each in enumerate(eachline):
-        if each ==" ":
-            print(" ",end= "")
-        else:
-            print(msg[i%len(msg)],end="")
-    print()
+bitmap2 ="""
+                   **             **
+                   ***            *** 
+                   ****          ****
+                   ****   **     *****
+                   *******************
+                  ****  ********  *****
+                 ***      ***      *****
+                 ****    ******   ******
+                 *********   ***********
+                 ****** *** ** ********
+                 *******   *   *******
+                 *********   *********
+                 ********************
+
+"""
+bitmap3="""
+
+"""
+
+choose=input('which bitmap would you like to try? \noptions: \na) world map\nb) cat(hopefully) \n > ')
+
+if choose.lower()=="a":
+    publish(bitmap1)
+elif choose.lower()=="b":
+    publish(bitmap2)
+elif choose.lower()=="c":
+    publish(bitmap3)
