@@ -5,4 +5,40 @@ In this bitmap, space characters represent an empty space,
 and all other characters are replaced by characters in the user’s message. 
 The provided bitmap resembles a world map, but you can change this to any image you’d like. 
 The binary simplicity of the space-or-message-characters system makes it good for beginners.
- Try experimenting with different messages to see what the results look like!"""
+Try experimenting with different messages to see what the results look like!"""
+
+# import sys
+
+print("Bitmap Message, by Al Sweigart al@inventwithpython.com")
+msg=input("Enter the message to display with the bitmap.\n > ")
+if msg == "":
+    exit()
+
+bitmap1 = """ 
+    **************   *  *** **  *      ******************************
+   ********************* ** ** *  * ****************************** *
+  **      *****************       ******************************
+           *************          **  * **** ** ************** *
+            *********            *******   **************** * *
+             ********           ***************************  *
+    *        * **** ***         *************** ******  ** *
+                ****  *         ***************   *** ***  *
+                  ******         *************    **   **  *
+                  ********        *************    *  ** ***
+                    ********         ********          * *** ****
+                    *********         ******  *        **** ** * **
+                    *********         ****** * *           *** *   *
+                      ******          ***** **             *****   *
+                      *****            **** *            ********
+                     *****             ****              *********
+                     ****              **                 *******   *
+                     ***                                       *    *
+                     **     *                    *
+"""
+for eachline in bitmap1.splitlines():
+    for i,each in enumerate(eachline):
+        if each ==" ":
+            print(" ",end= "")
+        else:
+            print(msg[i%len(msg)],end="")
+    print()
