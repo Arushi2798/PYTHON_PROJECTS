@@ -23,12 +23,13 @@ def getbirthdays(number):
     return dates
 
 def getMatch(birthdates):
-    c=[]
+    # c=[]
     for i in range(len(birthdates)):
         for j in range(i+1,len(birthdates)):
             if birthdates[i] ==birthdates[j]:
-                c.append(i)
-    return c
+                # c.append(i)
+                return birthdates[i]
+    # return set(c)
 
 
 print('''Birthday Paradox, by Al Sweigart al@inventwithpython.com 
@@ -69,17 +70,32 @@ for i, birthday in enumerate(birthdays):
 
 #to check for matching birthdays
 match=getMatch(birthdates)
-if len(match)==0:
+# print(f'\n\n {match}')
+if match == None:
     print("\nIn this simulation, there are no matching birthdays.")
 else:
-    date=[]
-    for each in match:
-        date.append(birthdates[each])
+     print(f"\n\n In this simulation, multiple people have a birthday on {match}. \n")
+
+    # date=[]
+    # for each in match:
+    #     date.append(birthdates[each])
     
-    print(f"\n\n In this simulation, multiple people have a birthday on {", ".join(date)}. \n")
+    # print(f"\n\n In this simulation, multiple people have a birthday on {", ".join(date)}. \n")
 
 #to run 100,000 simulations
 # Run through 100,000 simulations:
 print(f'Generating {num} random birthdays 100,000 times...')
 input('Press Enter to begin...')
 print('Let\'s run another 100,000 simulations.')
+
+simMATCH=0
+print('0 simulations run...')
+for i in range(100000):
+    birthdates = getbirthdays(num)
+    if getMatch(birthdates) != None:
+        simMATCH += 1
+print('100,000 simulations ran.')
+
+prob = round((simMATCH/100000)*100,2)
+print(f'''Out of 100,000 simulations of {num} people, there was a matching birthday in that group {simMATCH} times. This means that {num} people have a {prob}% chance of having a matching birthday in their group.''')
+print('That\'s probably more than you would think!')
