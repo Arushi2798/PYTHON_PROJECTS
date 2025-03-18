@@ -21,8 +21,6 @@ print("Here are some clues: \n When I say:    That means:\n  Pico         One di
 max_digits=3
 again= 'yes'
 
-
-
 def clues(number,guess):
     res=[]
     for j in range(max_digits):
